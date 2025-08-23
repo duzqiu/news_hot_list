@@ -2,7 +2,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
+import random
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
@@ -53,4 +53,15 @@ class NewsHotListPipeline:
             pass
         else:
             item['img'] = "https://www.logo9.net/userfiles/images/9JINRTT1.jpg"
+        if item['hot']:
+            if item['hot'].endswith("万"):
+                pass
+            else:
+                num = int(item['hot'])
+                num_in_wan = num // 10000  # 使用整除，直接得到整数部分
+                result = f"{num_in_wan}万"
+                item['hot'] = result
+        else:
+            num = random.randint(100, 900)
+            item['hot'] = f"{num}万"
         return item

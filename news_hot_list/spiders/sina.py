@@ -41,7 +41,7 @@ class SinaSpider(scrapy.Spider):
                 for news_id in self.news_id_list:
                     for key, value in news_id.items():
                         params["newsId"] = value
-                        url = f"{req_url["other"]}?{urlencode(params)}"
+                        url = f"{req_url['other']}?{urlencode(params)}"
                         yield scrapy.Request(url=url, callback=self.parse, meta={"platform": key}, method='GET')
             else:
                 pass

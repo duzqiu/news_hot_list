@@ -29,3 +29,12 @@
 # {"sina_fashion": "HB-1-snhs/top_news_list-fashion"},  # 时尚热榜
 # {"sina_travel": "HB-1-snhs/top_news_list-travel"},  # 旅游热榜
 # {"sina_ai": "HB-1-snhs/top_news_list-ai"}  # AI热榜
+
+
+# a = "40万"
+# print(a.endswith("万"))
+num_str = '7904900'
+num = int(num_str)
+num_in_wan = num // 10000  # 使用整除，直接得到整数部分
+result = f"{num_in_wan}万"
+print(result)
