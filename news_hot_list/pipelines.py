@@ -54,7 +54,7 @@ class NewsHotListPipeline:
         else:
             item['img'] = "https://www.logo9.net/userfiles/images/9JINRTT1.jpg"
         if item['hot']:
-            if item['hot'].endswith("万"):
+            if str(item['hot']).endswith("万"):
                 pass
             else:
                 num = int(item['hot'])
