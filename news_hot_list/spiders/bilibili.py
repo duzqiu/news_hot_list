@@ -22,6 +22,7 @@ class BilibiliSpider(scrapy.Spider):
         item['url'] = ''
         item['img'] = ''
         item['hot'] = ''
+        item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
         yield item
         for data in data_list:
             item['platform'] = 'bilibili'
@@ -29,6 +30,7 @@ class BilibiliSpider(scrapy.Spider):
             item['url'] = ''
             item['img'] = ''
             item['hot'] = ''
+            item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             yield item
 
 
