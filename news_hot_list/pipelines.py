@@ -58,9 +58,12 @@ class NewsHotListPipeline:
                 pass
             else:
                 num = int(item['hot'])
-                num_in_wan = num // 10000  # 使用整除，直接得到整数部分
-                result = f"{num_in_wan}万"
-                item['hot'] = result
+                if num >= 10000:
+                    num_in_wan = num // 10000  # 使用整除，直接得到整数部分
+                    result = f"{num_in_wan}万"
+                    item['hot'] = result
+                else:
+                    pass
         else:
             num = random.randint(100, 900)
             item['hot'] = f"{num}万"
