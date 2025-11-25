@@ -95,4 +95,4 @@ FEED_EXPORT_ENCODING = "utf-8"
 # MongoDB 配置
 MONGO_URL = 'mongodb://admin:123456@duzqiu.top:27017/'  # MongoDB 连接 URL
 MONGO_DATABASE = 'news_hot_list'               # 数据库名称
-MONGO_COLLECTION = 'news_hot'                 # 集合名称
+MONGO_COLLECTION = 'news_hot_test'                 # 集合名称

@@ -22,7 +22,7 @@ class MongoDBPipeline:
         return cls(
             mongo_url=crawler.settings.get('MONGO_URL'),
             mongo_db=crawler.settings.get('MONGO_DATABASE', 'news_hot_list'),
-            collection_name=crawler.settings.get('MONGO_COLLECTION', 'news_hot')
+            collection_name=crawler.settings.get('MONGO_COLLECTION', 'news_hot_test')
         )
 
     def open_spider(self, spider):
@@ -40,7 +40,7 @@ class MongoDBPipeline:
         try:
             # 将 Item 转换为字典并插入到 MongoDB
             self.collection.insert_one(dict(item))
-            spider.logger.info(f"Item inserted into MongoDB: {item}")
+            # spider.logger.info(f"Item inserted into MongoDB: {item}")
         except Exception as e:
             spider.logger.error(f"Error inserting item into MongoDB: {e}")
             raise DropItem(f"Error inserting item into MongoDB: {e}")

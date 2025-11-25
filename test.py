@@ -33,8 +33,32 @@
 
 # a = "40万"
 # print(a.endswith("万"))
-num_str = '7904900'
-num = int(num_str)
-num_in_wan = num // 10000  # 使用整除，直接得到整数部分
-result = f"{num_in_wan}万"
-print(result)
+# num_str = '7904900'
+# num = int(num_str)
+# num_in_wan = num // 10000  # 使用整除，直接得到整数部分
+# result = f"{num_in_wan}万"
+# print(result)
+
+weibo_hot = 'https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Drealtimehot'
+weibo_hot_params = '106003type=25&t=3&disable_hot=1&filter_type=realtimehot'
+weibo_hot_type = '08'
+weibo_wy= 'https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Dfun&page_type=08'
+weibo_wy_params = '106003type=25&t=3&disable_hot=1&filter_type=fun'
+weibo_wy_type = '08'
+weibo_sh = 'https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Dsocial&page_type=08'
+weibo_sh_params = '106003type=25&t=3&disable_hot=1&filter_type=social'
+weibo_sh_type = '08'
+
+category = ["realtimehot", "fun", "social"]
+
+# for cate in category:
+#     parse_list = {
+#         "containerid": "106003type=25&t=3&disable_hot=1&filter_type=",
+#         "page_type": "08"
+#         }
+#     parse_list['containerid'] = parse_list['containerid'] + cate
+#     print(parse_list)
+
+s = 98798
+value = s if s.isdigit() else s.split()[1] if len(s.split()) > 1 else None
+print(value)
