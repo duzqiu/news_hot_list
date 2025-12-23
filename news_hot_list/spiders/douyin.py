@@ -5,6 +5,14 @@ from scrapy.http import Response
 from news_hot_list.items import NewsHotListItem
 from datetime import datetime
 
+dict_pl = { 
+    "dy_hot": "实时热搜",
+    "dy_plant": "种草热搜",
+    "dy_entertain": "娱乐热搜",
+    "dy_society": "社会热搜",
+    "dy_sh": "上海热搜"
+}
+
 class DouyinSpider(scrapy.Spider):
     name = "douyin"
     allowed_domains = ["douyin.com"]
@@ -18,6 +26,8 @@ class DouyinSpider(scrapy.Spider):
         "need_covid_tab": "false",
         "version_code": "32.3.0"
     }
+    # dy_hot 抖音实时热搜. dy_plant 抖音种草热搜. dy_entertain 抖音娱乐热搜. 
+    # dy_society 抖音社会热搜. dy_sh 抖音上海热搜
     params_data = [["dy_hot", "0", "", "true"],["dy_plant", "2", "seeding", "false"],
                    ["dy_entertain","2", "2", "false"],["dy_society","2", "4", "false"],
                    ["dy_sh","1", "310000", "false"]]
@@ -38,7 +48,8 @@ class DouyinSpider(scrapy.Spider):
         # trending_list = data['data']['trending_list'] #抖音实时上升榜
         word_list = data['data']['word_list']
         for word in word_list[1:]:
-            item["platform"] = response.meta["platform"]
+            item["platform"] = "抖音"
+            item["sub_title"] = dict_pl[response.meta["platform"]]
             item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             item['title'] = word['word']
             item['url'] = ""

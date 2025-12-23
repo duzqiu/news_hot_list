@@ -21,7 +21,8 @@ class BaiduSpider(scrapy.Spider):
         item = NewsHotListItem()
         all_data = response.xpath('//div[@class="category-wrap_iQLoo horizontal_1eKyQ"]')
         for data in all_data:
-            item['platform'] = self.name
+            item['platform'] = "百度"
+            item['sub_title'] = "热榜"
             item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             item['title'] = data.xpath('.//div[@class="c-single-text-ellipsis"]/text()').get().strip()
             item['url'] = data.xpath('.//a[@class="img-wrapper_29V76"]/@href').get()

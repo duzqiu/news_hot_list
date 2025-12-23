@@ -17,7 +17,8 @@ class BilibiliSpider(scrapy.Spider):
         item = NewsHotListItem()
         data_list = response.json()['data']['list']
         top_data = response.json()['data']['top_list']
-        item['platform'] = 'bilibili'
+        item['platform'] = '哔哩哔哩'
+        item['sub_title'] = '热搜'
         item['title'] = top_data[0]['show_name']
         item['url'] = ''
         item['img'] = ''
@@ -25,7 +26,8 @@ class BilibiliSpider(scrapy.Spider):
         item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
         yield item
         for data in data_list:
-            item['platform'] = 'bilibili'
+            item['platform'] = '哔哩哔哩'
+            item['sub_title'] = '热搜'
             item['title'] = data['show_name']
             item['url'] = ''
             item['img'] = ''

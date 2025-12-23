@@ -22,7 +22,8 @@ class ToutiaoSpider(scrapy.Spider):
         item = NewsHotListItem()
         all_data = response.json()["data"]
         for data in all_data:
-            item['platform'] = self.name
+            item['platform'] = "头条"
+            item['sub_title'] = "热榜"
             item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             item["title"] = data["Title"]
             item["hot"] = data["HotValue"]

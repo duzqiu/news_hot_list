@@ -11,6 +11,7 @@ class NewsHotListItem(scrapy.Item):
     # name = scrapy.Field()
     platform = scrapy.Field() # 平台
     title = scrapy.Field() # 标题
+    sub_title = scrapy.Field() # 副标题
     url = scrapy.Field() # 链接
     img = scrapy.Field() # 缩略图地址
     hot = scrapy.Field() # 热度

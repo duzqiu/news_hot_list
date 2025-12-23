@@ -7,6 +7,19 @@ from scrapy.http import Response
 from urllib.parse import urlencode
 from news_hot_list.items import NewsHotListItem
 
+dict_pl = {
+    "sina_hot": "热榜",
+    "sina_cmnt": "热议榜",
+    "sina_video": "视频热榜",
+    "sina_trend": "潮流热榜",
+    "sina_sport": "体育热榜",
+    "sina_ent": "娱乐热榜",
+    "sina_auto": "汽车热榜",
+    "sina_fashion": "时尚热榜",
+    "sina_travel": "旅游热榜",
+    "sina_ai": "AI热榜"
+}
+
 
 class SinaSpider(scrapy.Spider):
     name = "sina"
@@ -59,7 +72,8 @@ class SinaSpider(scrapy.Spider):
             else:
                 hot_list = response.json()['data']['hotList']
             for hot in hot_list:
-                item['platform'] = response.meta['platform']
+                item['platform'] = "新浪"
+                item['sub_title'] = dict_pl[response.meta['platform']]
                 item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
                 item['title'] = hot['base']['dynamicName']
                 item['url'] = hot['base']['base']['url']
@@ -73,7 +87,8 @@ class SinaSpider(scrapy.Spider):
             hot_list = response.json()['data']['hotList']
             for hot in hot_list:
                 share_data = hot['info']['interactionInfo']['shareInfo']
-                item['platform'] = response.meta['platform']
+                item['platform'] = "新浪"
+                item['sub_title'] = dict_pl[response.meta['platform']]
                 item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
                 item['title'] = share_data['customTitle']
                 item['url'] = share_data['link']
