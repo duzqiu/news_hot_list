@@ -50,6 +50,7 @@ class DouyinSpider(scrapy.Spider):
         for word in word_list[1:]:
             item["platform"] = "抖音"
             item["sub_title"] = dict_pl[response.meta["platform"]]
+            item['icon'] = 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/66/2c/e7/662ce7f5-ae55-0929-64e2-94e249ed8dbc/AppIcon_TikTok-0-0-1x_U007epad-0-1-0-0-85-220.png/350x350.png?'
             item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             item['title'] = word['word']
             item['url'] = ""

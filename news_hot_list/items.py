@@ -10,6 +10,7 @@ class NewsHotListItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     platform = scrapy.Field() # 平台
+    icon = scrapy.Field() # 平台图标
     title = scrapy.Field() # 标题
     sub_title = scrapy.Field() # 副标题
     url = scrapy.Field() # 链接

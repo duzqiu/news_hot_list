@@ -24,6 +24,7 @@ class ToutiaoSpider(scrapy.Spider):
         for data in all_data:
             item['platform'] = "头条"
             item['sub_title'] = "热榜"
+            item['icon'] = "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/1f/92/5c1f9236-d2a2-c247-c546-50fc5cb02e85/AppIcon-News-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/400x400ia-75.webp"
             item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             item["title"] = data["Title"]
             item["hot"] = data["HotValue"]

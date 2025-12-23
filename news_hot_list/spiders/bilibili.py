@@ -19,6 +19,7 @@ class BilibiliSpider(scrapy.Spider):
         top_data = response.json()['data']['top_list']
         item['platform'] = '哔哩哔哩'
         item['sub_title'] = '热搜'
+        item['icon'] = 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/c2/f5/74c2f550-18c1-4594-9f2a-1a7478416178/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/350x350.png?'
         item['title'] = top_data[0]['show_name']
         item['url'] = ''
         item['img'] = ''
@@ -28,6 +29,7 @@ class BilibiliSpider(scrapy.Spider):
         for data in data_list:
             item['platform'] = '哔哩哔哩'
             item['sub_title'] = '热搜'
+            item['icon'] = 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/c2/f5/74c2f550-18c1-4594-9f2a-1a7478416178/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/350x350.png?'
             item['title'] = data['show_name']
             item['url'] = ''
             item['img'] = ''

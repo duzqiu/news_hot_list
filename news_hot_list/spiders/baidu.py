@@ -22,6 +22,7 @@ class BaiduSpider(scrapy.Spider):
         all_data = response.xpath('//div[@class="category-wrap_iQLoo horizontal_1eKyQ"]')
         for data in all_data:
             item['platform'] = "百度"
+            item['icon']= "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/c8/11/ebc81175-b935-4ce3-7ea9-44f6c979449a/AppIcon-0-0-1x_U007epad-0-1-0-0-sRGB-85-220.png/350x350.png?"
             item['sub_title'] = "热榜"
             item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
             item['title'] = data.xpath('.//div[@class="c-single-text-ellipsis"]/text()').get().strip()
