@@ -29,7 +29,7 @@ class MongoDBPipeline:
         self.client = pymongo.MongoClient(self.mongo_url)
         self.db = self.client[self.mongo_db]
         self.collection = self.db[self.collection]
-        # self.collection.delete_many({})
+        self.collection.delete_many({})
 
     def close_spider(self, spider):
         # self.collection.close()
