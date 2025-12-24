@@ -89,6 +89,7 @@ class SinaSpider(scrapy.Spider):
             for hot in hot_list:
                 share_data = hot['info']['interactionInfo']['shareInfo']
                 item['platform'] = "新浪"
+                item['icon'] = "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/06/0f/08060fea-34cb-2e42-fbb0-88d445d665b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/350x350.png?"
                 item['sub_title'] = dict_pl[response.meta['platform']]
                 item['create_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
                 item['title'] = share_data['customTitle']
